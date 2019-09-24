@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "787155138466",
+    "firebase_url": "https://apple-mart-29a16.firebaseio.com",
+    "project_id": "apple-mart-29a16",
+    "storage_bucket": "apple-mart-29a16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787155138466:android:263b0ed604dcef02e9e4fb",
+        "android_client_info": {
+          "package_name": "com.example.applemart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787155138466-nnfo7vs5iuqpdlt6bmerlk88veqj4unr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.applemart",
+            "certificate_hash": "263188436e91a2be05d7bbea10e5dd74cdab7650"
+          }
+        },
+        {
+          "client_id": "787155138466-0bbevj0v7k9vuh3gea6pi37mbmjc8evm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.applemart",
+            "certificate_hash": "82ca3aefc2e26b5d9c234e21dc728dd369303039"
+          }
+        },
+        {
+          "client_id": "787155138466-rqpphmjsasu0pl2b27hafpc4i8i08nj2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAITV67KZJLTURuhhCxK14JldPiWCoFIXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787155138466-rqpphmjsasu0pl2b27hafpc4i8i08nj2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
