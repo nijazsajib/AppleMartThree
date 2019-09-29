@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bacgroundColor">
+    android:background="@drawable/bg_color">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
@@ -12,15 +12,22 @@
         app:srcCompat="@drawable/logo3"
         android:layout_centerHorizontal="true"
         />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/admin_logo"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
     <ImageButton
         android:id="@+id/admin_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/admin_logo2"
+        android:layout_width="41dp"
+        android:layout_height="49dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:fitsSystemWindows="true"/>
+        android:fitsSystemWindows="true"
+        android:src="@drawable/admin_logo2" />
     <LinearLayout
         android:id="@+id/login_linear"
         android:layout_width="match_parent"
@@ -42,20 +49,22 @@
                 android:inputType="textPersonName"
                 android:textSize="18sp"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="true"
             android:focusableInTouchMode="true"
             app:passwordToggleEnabled="true">
+
             <EditText
                 android:id="@+id/password_login_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
                 android:ems="10"
+                android:hint="Password"
                 android:inputType="textPassword"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/login_btn"
@@ -80,6 +89,67 @@
             android:layout_marginTop="20dp"
             android:visibility="gone"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/admin_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:layout_below="@id/imageView2"
+        android:visibility="gone">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+            <EditText
+                android:id="@+id/admin_uname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Admin Username"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="18sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:passwordToggleEnabled="true">
+            <EditText
+                android:id="@+id/admin_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textSize="18sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/admin_login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="LOGIN"
+            android:textSize="18sp"
+            android:textColor="@color/bacgroundColor"
+            android:background="@drawable/button_style"
+            android:layout_marginTop="40dp"/>
+        <TextView
+            android:id="@+id/user_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login as user? Cliclk here..."
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"/>
+        <ProgressBar
+            android:id="@+id/admin_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/register_linear"
         android:layout_width="match_parent"

@@ -3,12 +3,14 @@ package com.example.applemart;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,26 +21,25 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
-
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    EditText name, number, password,passwordConfirm, email, address, emailLogin,passwordLogin;
-    Button register, loginBtn;
+    EditText name, number, password,passwordConfirm, email, address, emailLogin,passwordLogin, adminUname, adminPwd;
+    Button register, loginBtn, adminBtn;
     ProgressBar regProgressBar, logProgressBar;
-    TextView dispChnage, dispChnageTwo;
-    LinearLayout loginLinear,registerLinear;
+    TextView dispChnage, dispChnageTwo, user_login;
+    LinearLayout loginLinear,registerLinear,adminLinear;
     private FirebaseAuth mAuth;
     DatabaseReference databaseReference;
     ImageButton adminButton;
+    ImageView userImage, adminImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         adminButton = findViewById(R.id.admin_button);
         register = findViewById(R.id.register_button);
+        adminBtn = findViewById(R.id.admin_login_btn);
         loginBtn = findViewById(R.id.login_btn);
         name = findViewById(R.id.name_text);
         number = findViewById(R.id.phone_number_text);
@@ -46,20 +47,62 @@ public class MainActivity extends AppCompatActivity {
         passwordConfirm = findViewById(R.id.password_confirm_text);
         email = findViewById(R.id.email_text);
         address = findViewById(R.id.address_text);
+        adminUname = findViewById(R.id.admin_uname);
+        adminPwd = findViewById(R.id.admin_pwd);
         dispChnage = findViewById(R.id.change_disp);
         dispChnageTwo = findViewById(R.id.change_disp_two);
+        user_login = findViewById(R.id.user_login);
         loginLinear =  findViewById(R.id.login_linear);
         registerLinear = findViewById(R.id.register_linear);
+        adminLinear = findViewById(R.id.admin_linear);
         emailLogin = findViewById(R.id.email_login_text);
         passwordLogin = findViewById(R.id.password_login_text);
         regProgressBar = findViewById(R.id.register_progress);
         logProgressBar = findViewById(R.id.login_progress);
+
+        userImage = findViewById(R.id.imageView);
+        adminImage = findViewById(R.id.imageView2);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Admin button clicked....", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, AdminActivity.class));
+                /*adminLinear.setVisibility(View.VISIBLE);
+                adminImage.setVisibility(View.VISIBLE);
+                loginLinear.setVisibility(View.GONE);
+                registerLinear.setVisibility(View.GONE);
+                userImage.setVisibility(View.GONE);*/
+            }
+        });
+        user_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adminLinear.setVisibility(View.GONE);
+                adminImage.setVisibility(View.GONE);
+                loginLinear.setVisibility(View.VISIBLE);
+                registerLinear.setVisibility(View.GONE);
+                userImage.setVisibility(View.VISIBLE);
+            }
+        });
+        adminBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String adminname = adminUname.getText().toString().trim();
+                String adminpwd = adminPwd.getText().toString().trim();
+                String uname = "admin";
+                String pwd = "admin";
+                if (TextUtils.isEmpty(adminname)){
+                    Toast.makeText(MainActivity.this, "Enter Username...", Toast.LENGTH_SHORT).show();
+                }if (TextUtils.isEmpty(adminpwd)){
+                    Toast.makeText(MainActivity.this, "Enter password...", Toast.LENGTH_SHORT).show();
+                }if (adminname.equals(uname) && adminpwd.equals(pwd)){
+                    Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(MainActivity.this, "Incorrect Username and Password...", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         dispChnage.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,11 @@
     <color name="bacgroundColor">#F1FC4B</color>
     <color name="accentColor">#41FFC107</color>
     <color name="itemColor">#4CAF50</color>
-    <color name="itemColorChange">#DF9782</color>
+    <color name="itemColorChange">#6EF3D9</color>
     <color name="white">#FFFFFF</color>
+    <color name="lightColor">#65F8CF</color>
+    <color name="darkColor">#29BEAE</color>
+    <color name="lightColor2">#7565E7F8</color>
+    <color name="darkColor2">#5629B2BE</color>
+
 </resources>

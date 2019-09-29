@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Apple Mart</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="todo">TODO</string>
+    <string name="number">Number</string>
+    <string name="product_list">Product List</string>
 </resources>
